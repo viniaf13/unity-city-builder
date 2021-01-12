@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,8 +7,8 @@ using UnityEngine.EventSystems;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] LayerMask mouseInputMask;
-    //[SerializeField] GameObject buildingPrefab;
-    //[SerializeField] int cellSize = 3;
+
+    private Action<Vector3> OnPointerDownHandler;
 
     void Update()
     {
@@ -31,21 +32,16 @@ public class InputManager : MonoBehaviour
         if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, mouseInputMask))
         {
             Vector3 mousePosition = hit.point - transform.position;
-            //Vector3 gridPosition = CalculateGridPosition(mousePosition);
-            //CreateBuilding(gridPosition);
+            OnPointerDownHandler?.Invoke(mousePosition);
         }
     }
 
-    /*private Vector3 CalculateGridPosition(Vector3 inputPosition)
+    public void AddListenerOnPointerDownEvent(Action<Vector3> listener)
     {
-        int x = Mathf.FloorToInt((float)inputPosition.x / cellSize);
-        int z = Mathf.FloorToInt((float)inputPosition.z / cellSize);
-        return new Vector3(x*cellSize, 0, z*cellSize);
+        OnPointerDownHandler += listener;
+    }    
+    public void RemoveListenerOnPointerDownEvent(Action<Vector3> listener)
+    {
+        OnPointerDownHandler -= listener;
     }
-
-    private void CreateBuilding(Vector3 gridPosition)
-    {
-        GameObject building = Instantiate(buildingPrefab, gridPosition, Quaternion.identity) as GameObject;
-        //building.transform.parent
-    }*/
 }
