@@ -10,16 +10,23 @@ public class GameManager : MonoBehaviour
 
     private GridStructure grid;
     [SerializeField] int cellSize = 3;
+    [SerializeField] int gridRows;
+    [SerializeField] int gridColumns;
 
     void Start()
     {
-        grid = new GridStructure(cellSize);
+        grid = new GridStructure(cellSize,gridRows,gridColumns);
         InputManager.AddListenerOnPointerDownEvent(HandleInput);
     }
 
     private void HandleInput(Vector3 position)
     {
-        placementManager.CreateBuilding(grid.CalculateGridPosition(position));
+        Vector3 gridPosition = grid.CalculateGridPosition(position);
+        if (!grid.IsCellTaken(gridPosition))
+        {
+            placementManager.CreateStructure(gridPosition, grid);
+            
+        }
     }
 
     void Update()

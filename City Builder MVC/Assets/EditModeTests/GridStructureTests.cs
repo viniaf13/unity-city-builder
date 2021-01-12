@@ -12,7 +12,7 @@ namespace Tests
         [OneTimeSetUp]
         public void Init()
         {
-            gridStructure = new GridStructure(3);
+            gridStructure = new GridStructure(3,50,60);
         }
 
         [Test]

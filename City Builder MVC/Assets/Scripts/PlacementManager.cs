@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
-    [SerializeField] GameObject buildingPrefab;
+    [SerializeField] GameObject structurePrefab;
     [SerializeField] Transform ground;
 
-    public void CreateBuilding(Vector3 gridPosition)
+    public void CreateStructure(Vector3 gridPosition, GridStructure grid)
     {
-        GameObject building = Instantiate(buildingPrefab, ground.position + gridPosition, Quaternion.identity) as GameObject;
-        building.transform.parent = transform.parent;
+        GameObject newStructure = Instantiate(structurePrefab, ground.position + gridPosition, Quaternion.identity);
+        grid.PlaceStructureOnGrid(newStructure, gridPosition);
+        newStructure.transform.parent = transform;
     }
 }

@@ -426,6 +426,8 @@ MonoBehaviour:
   placementManager: {fileID: 1105755511}
   InputManager: {fileID: 316464165}
   cellSize: 3
+  gridRows: 500
+  gridColumns: 500
 --- !u!4 &1015765075
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979e8dc50f40b1d48b1a2625beaba2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 467698523139998948, guid: e675b2a536f3e474e863fec3a22be5a9,
+  structurePrefab: {fileID: 467698523139998948, guid: e675b2a536f3e474e863fec3a22be5a9,
     type: 3}
   ground: {fileID: 1707022556}
 --- !u!4 &1105755512
