@@ -77,7 +77,7 @@ namespace Tests
             Assert.IsFalse(gridStructure.IsCellTaken(position));
         }
         [Test]
-        public void PlaceStructureOutOfBoundsExceptionFails()
+        public void PlaceStructureIndexOutOfBoundsExceptionFails()
         {
             Vector3 position = new Vector3(400, 0, 400);
             Vector3 returnedPosition = gridStructure.CalculateGridPosition(position);
@@ -85,7 +85,7 @@ namespace Tests
             gridStructure.PlaceStructureOnGrid(testGameObject, returnedPosition);
             Assert.Throws<IndexOutOfRangeException>(() => gridStructure.IsCellTaken(position));
         }            [Test]
-        public void PlaceStructureNegativeOutOfBoundsExceptionFails()
+        public void PlaceStructureNegativeIndexOutOfBoundsExceptionFails()
         {
             Vector3 position = new Vector3(-3, 0, -3);
             Vector3 returnedPosition = gridStructure.CalculateGridPosition(position);
