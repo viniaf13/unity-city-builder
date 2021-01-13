@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
 
     private GridStructure grid;
     [SerializeField] int cellSize = 3;
-    [SerializeField] int gridRows;
-    [SerializeField] int gridColumns;
+    [SerializeField] int gridRows = 100;
+    [SerializeField] int gridColumns = 100;
 
     void Start()
     {

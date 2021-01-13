@@ -11,7 +11,10 @@ public class Cell
 
     public void SetStructure(GameObject structureModel)
     {
-        this.structureModel = structureModel;
-        this.isTaken = true;
+        if (structureModel)
+        {
+            this.structureModel = structureModel;
+            this.isTaken = true;
+        }
     }
 }

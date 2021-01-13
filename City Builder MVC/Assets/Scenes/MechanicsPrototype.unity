@@ -426,8 +426,8 @@ MonoBehaviour:
   placementManager: {fileID: 1105755511}
   InputManager: {fileID: 316464165}
   cellSize: 3
-  gridRows: 500
-  gridColumns: 500
+  gridRows: 100
+  gridColumns: 100
 --- !u!4 &1015765075
 Transform:
   m_ObjectHideFlags: 0

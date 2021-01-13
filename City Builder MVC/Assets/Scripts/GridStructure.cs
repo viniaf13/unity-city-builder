@@ -48,7 +48,7 @@ public class GridStructure
     public void PlaceStructureOnGrid(GameObject structure, Vector3 gridPosition)
     {
         Vector2Int cellIndex = CalculateGridIndex(gridPosition);
-        if (IsIndexValid(cellIndex))
+        if (IsIndexValid(cellIndex) && structure)
             grid[cellIndex.y, cellIndex.x].SetStructure(structure);
     }
 
